@@ -60,3 +60,22 @@ network:
             dhcp4: true
             optional: true
 ```
+### SenseHat Package Installation 
+1. Update the ubuntu and install sense-hat
+```
+sudo apt update
+sudo apt install sense-hat
+```
+2. Setup the Raspberry Pi firmware overlay, go to below file and add the two lines at the file bottom
+```
+sudo nano /boot/firmware/config.txt
+```
+add below 2 lines:
+```
+dtoverlay=rpi-sense
+dtparam=i2c_arm=on
+```
+3. Give user the right permission to access sense-hat
+```
+sudo usermod -a -G input $USER
+```
